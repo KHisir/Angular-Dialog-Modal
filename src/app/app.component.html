@@ -1,0 +1,22 @@
+<app-cc-dialog (onAction)="modal1OnAction($event)" [id]="'modal1'" [title]="'My modal title'" [subtitle]="'My modal subtitle'"
+    [backdrop]="true" [help]="true" [closeable]="true" [fullscreenable]="true"
+    [dismissable]="false" [secondaryButtonText]="'Close'" [primaryButtonText]="'Apply'"
+    [showTitlebar]="true" [showFooter]="true" >
+    Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.
+    <!-- <br><a href="javascript:void(0)" (click)="openModal2()">Open modal 2</a> -->
+</app-cc-dialog>
+
+<app-cc-dialog (onAction)="modal2OnAction($event)" [id]="'modal2'" [verticallyCentered]="true">
+  Hey! I'am a centered dialog!
+</app-cc-dialog>
+
+<app-cc-dialog (onAction)="modal3OnAction($event)" [id]="'modal3'">
+  Hey! I'am a nested dialog!
+  <br><a href="javascript:void(0)" (click)="openModal1()">Open modal 1</a>
+</app-cc-dialog>
+
+<button (click)="openModal1()">Open modal 1</button>
+<button (click)="openModal2()">Open modal 2</button>
+<button (click)="openModal3()">Open modal 3</button>
+
+<router-outlet></router-outlet>

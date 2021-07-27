@@ -1,0 +1,30 @@
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.0/css/all.css"
+  integrity="sha384-OLYO0LymqQ+uHXELyx93kblK5YIS3B2ZfLGBmsJaUyor7CpMTBsahDHByqSuWW+q" crossorigin="anonymous">
+
+<link href="https://fonts.googleapis.com/css?family=Quicksand:400,700" rel="stylesheet">
+
+<div id="cc-modal" class="backdrop" (click)="closeByBackdrop($event)" [style.z-index]="zIndex" [class.backdrop-enable]="backdrop === true" [class.show]="openModal === true" [class.hidden]="openModal === false">
+  <div id="wrapper" [style.width]="width" [style.height]="height" [class.footerDisabled]="showFooter === false" [class.centered]="verticallyCentered === true" [class.fullscreen]="fullscreen === true" #wrapper>
+    <div id="header">
+      <div class="toolbar">
+        <div>
+          <button [disabled]="help === false" (click)="helpOnclick()" title="Help"><i class="fas fa-question"></i></button>
+          <button [disabled]="fullscreenable === false" *ngIf="fullscreen === true" (click)="fullscreenOnclick(false)" title="Zoom out"><i class="far fa-clone"></i></button>
+          <button [disabled]="fullscreenable === false" *ngIf="fullscreen === false" (click)="fullscreenOnclick(true)" title="Fullscreen"><i class="far fa-square"></i></button>
+          <button [disabled]="closeable === false" (click)="closeOnclick()" title="Close"><i class="fas fa-times"></i></button>
+        </div>
+      </div>
+      <div class="titlebar" [class.show]="showTitlebar === true">
+        <h4 class="modal-title">{{title}}</h4>
+        <small class="modal-subtitle" *ngIf="subtitle !== ''">{{subtitle}}</small>
+      </div>
+    </div>
+    <div id="content">
+      <ng-content></ng-content>
+    </div>
+    <div id="footer" [class.show]="showFooter === true">
+      <button class="secondary-button" *ngIf="secondaryButtonText !== ''" (click)="secondaryBtnOnclick()">{{secondaryButtonText}}</button>
+      <button class="primary-button" (click)="primaryBtnOnclick()">{{primaryButtonText}}</button>
+    </div>
+  </div>
+</div>
