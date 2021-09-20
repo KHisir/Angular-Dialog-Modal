@@ -4,6 +4,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CcDialogComponent } from './cc-dialog/cc-dialog.component';
+import { ModalService } from './cc-dialog/modal.service';
 
 @NgModule({
   declarations: [	
@@ -14,7 +15,7 @@ import { CcDialogComponent } from './cc-dialog/cc-dialog.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
+  providers: [ModalService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
